@@ -1,113 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Fire - Escuadra Élite</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#100c18">
+    <meta name="description" content="Rata Móvil: salidas nocturnas en la ciudad. Consulta tu viaje y coordina tu traslado.">
+    <title>Rata Móvil | Salidas nocturnas</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="city-backdrop" aria-hidden="true">
+      <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="city-sky" x2="0" y2="1">
+            <stop stop-color="#110e20"/>
+            <stop offset=".57" stop-color="#37203d"/>
+            <stop offset="1" stop-color="#17121d"/>
+          </linearGradient>
+          <linearGradient id="city-road" x2="0" y2="1">
+            <stop stop-color="#28202d"/>
+            <stop offset="1" stop-color="#100e16"/>
+          </linearGradient>
+          <radialGradient id="city-pink">
+            <stop stop-color="#fb348f" stop-opacity=".7"/>
+            <stop offset="1" stop-color="#fb348f" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="city-blue">
+            <stop stop-color="#2ecfff" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#2ecfff" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="city-blur">
+            <feGaussianBlur stdDeviation="32"/>
+          </filter>
+        </defs>
+        <path fill="url(#city-sky)" d="M0 0h1600v1000H0z"/>
+        <ellipse cx="840" cy="520" rx="700" ry="440" fill="url(#city-pink)" opacity=".55"/>
+        <ellipse cx="145" cy="470" rx="300" ry="360" fill="url(#city-blue)" opacity=".55"/>
+        <ellipse cx="1460" cy="450" rx="270" ry="370" fill="url(#city-blue)" opacity=".44"/>
+        <path d="M80 0h85l370 675h-90z" fill="#ff429e" opacity=".16"/>
+        <path d="M1470 0h-82L1000 675h75z" fill="#36d8ff" opacity=".17"/>
 
-    <!-- ENCABEZADO / MENÚ -->
-    <header>
-        <div class="logo">
-            <h1>FREE FIRE</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">INICIO</a></li>
-                <li><a href="#jugadores">JUGADORES</a></li>
-                <li><a href="#">TABLA DE CLASIFICACIÓN</a></li>
-                <li><a href="#">PASE ÉLITE</a></li>
-            </ul>
-        </nav>
+        <g fill="#100d19">
+          <path d="M0 332h130v365H0zm147-97h126v462H147zm144 67h126v395H291zm145-177h143v513H436zm162 91h115v422H598zm528 29h138v393h-138zm154-116h147v509h-147zm164 75h127v434h-127zm144-160h145v594h-145z"/>
+        </g>
+        <g fill="#ff65b1" opacity=".78">
+          <path d="M35 390h12v25H35zm78-36h12v25h-12zm84-71h12v25h-12zm125 159h12v25h-12zm68-96h12v25h-12zm112-139h12v25h-12zm65 224h12v25h-12zm584-26h12v25h-12zm111-147h12v25h-12zm161 111h12v25h-12zm157-238h12v25h-12z"/>
+        </g>
+        <g fill="#47dfff" opacity=".72">
+          <path d="M79 476h12v25H79zm148-92h12v25h-12zm174 115h12v25h-12zm171-270h12v25h-12zm108 155h12v25h-12zm534-34h12v25h-12zm164-141h12v25h-12zm133 185h12v25h-12zm120-238h12v25h-12z"/>
+        </g>
+        <path d="M0 630q310-60 625-13t558 4q214-48 417-10v389H0z" fill="url(#city-road)"/>
+        <path d="M0 655q380-45 800-4t800-3" fill="none" stroke="#fa439e" stroke-opacity=".52" stroke-width="5"/>
+        <path d="m220 1000 475-350m690 350-475-350" fill="none" stroke="#ed4c9e" stroke-opacity=".23" stroke-width="5"/>
+        <path d="M800 711v30m0 41v34m0 45v30m0 39v30" stroke="#ddd4df" stroke-opacity=".2" stroke-width="5" stroke-linecap="round"/>
+
+        <g fill="#090a11" opacity=".93">
+          <circle cx="108" cy="581" r="23"/><path d="M80 609q28-23 56 0l22 135H57zm-5 44-38 75 13 8 46-59zm65 0 38 75-13 8-46-59z"/>
+          <circle cx="315" cy="604" r="20"/><path d="M291 627q24-19 48 0l17 116h-82zm-11 44-36 64 13 8 43-50zm59 0 36 64-13 8-43-50z"/>
+          <circle cx="523" cy="585" r="22"/><path d="M497 611q26-21 52 0l18 128h-88zm-12 45-37 72 14 7 44-55zm64 0 38 72-14 7-44-55z"/>
+          <circle cx="1075" cy="602" r="21"/><path d="M1050 626q25-20 50 0l18 122h-86zm-11 44-35 67 13 8 42-52zm61 0 36 67-13 8-42-52z"/>
+          <circle cx="1292" cy="575" r="24"/><path d="M1264 604q28-23 56 0l20 140h-96zm-14 48-39 76 14 8 46-60zm70 0 40 76-14 8-47-60z"/>
+          <circle cx="1500" cy="610" r="20"/><path d="M1476 634q24-19 48 0l17 116h-82zm-10 42-36 65 13 7 42-50zm58 0 36 65-13 7-42-50z"/>
+        </g>
+        <g fill="#ffd7ed" opacity=".85" filter="url(#city-blur)">
+          <circle cx="70" cy="620" r="22"/><circle cx="352" cy="636" r="20"/>
+          <circle cx="1230" cy="631" r="22"/><circle cx="1540" cy="623" r="23"/>
+        </g>
+      </svg>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Rata Móvil, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M5 29h5l4-11h21l6 11h3v9h-4a6 6 0 0 1-12 0h-9a6 6 0 0 1-12 0H5z"/>
+            <path d="m16 21-3 7h21l-4-7z"/>
+            <circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/>
+          </svg>
+        </span>
+        <span class="brand-copy"><strong>RATA <i>MÓVIL</i></strong><small>SALIDAS NOCTURNAS</small></span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#servicio">El servicio</a>
+        <a href="#galeria">La noche</a>
+        <a class="nav-cta" href="#reserva">Coordinar viaje <span aria-hidden="true">↗</span></a>
+      </nav>
     </header>
 
-    <!-- SECCIÓN PRINCIPAL (HERO) -->
-    <main>
-        <section class="hero">
-            <p class="subtitulo">DOMINA EL CAMPO DE BATALLA</p>
-            <h2>ESCUADRA DE HONOR</h2>
-            <p class="descripcion">Conocé a los mejores jugadores de la temporada. Preparados para el Booyah!</p>
-        </section>
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> LA NOCHE ES TUYA</p>
+          <h1 id="hero-title"><span class="headline-line">La noche</span><span>no espera.</span></h1>
+          <p class="intro">Tú disfruta la salida. Nosotros te ayudamos a coordinar el viaje.</p>
+          <a class="primary-button" href="#reserva">Arma tu viaje <span aria-hidden="true">↗</span></a>
+          <p class="microcopy">Salidas nocturnas · Ciudad · A tu ritmo</p>
+        </div>
+        <figure class="hero-image" id="galeria">
+          <img src="Rata-Movil.jpg" alt="Rata Móvil en una fiesta urbana nocturna, rodeado de gente y luces de ciudad">
+          <figcaption><span class="caption-dot"></span> RATA MÓVIL <span class="caption-divider">/</span> MODO NOCHE</figcaption>
+        </figure>
+        <div class="hero-side-note" aria-hidden="true">NOCHE<br><span>EN MOVIMIENTO</span></div>
+        <a class="scroll-cue" href="#servicio"><span></span> DESCUBRE EL SERVICIO</a>
+      </section>
 
-        <!-- SECCIÓN DE TARJETAS DE JUGADORES -->
-        <section id="jugadores" class="contenedor-jugadores">
-            
-            <!-- TARJETA 1 -->
-            <article class="tarjeta-jugador">
-                <div class="imagen-contenedor">
-                    <!-- CAMBIÁ LA URL DE ABAJO POR TU IMAGEN -->
-                    <img src="Samu.jpg" alt="Jugador 1">
-                </div>
-                <div class="info-jugador">
-                    <h3>ID: SANGRE_FRÍA</h3>
-                    <span class="rango">Gran Maestro</span>
-                    <p>Especialista en M1887 y combate a corta distancia.</p>
-                </div>
-            </article>
+      <section class="service-section" id="servicio" aria-labelledby="service-title">
+        <div class="section-heading">
+          <p class="eyebrow">TU PLAN, TU RECORRIDO</p>
+          <h2 id="service-title">De la salida<br><span>hasta tu destino.</span></h2>
+          <p>Cuéntanos cómo es tu noche y coordinamos los detalles de tu traslado.</p>
+        </div>
+        <div class="service-cards">
+          <article class="service-card">
+            <span class="card-number">01</span>
+            <span class="card-icon" aria-hidden="true">✳</span>
+            <h3>Tu noche, tus paradas</h3>
+            <p>Comparte tu punto de partida y los lugares a los que quieres ir.</p>
+          </article>
+          <article class="service-card">
+            <span class="card-number">02</span>
+            <span class="card-icon" aria-hidden="true">↗</span>
+            <h3>Coordina el recorrido</h3>
+            <p>Conversa los horarios y el destino antes de iniciar el viaje.</p>
+          </article>
+          <article class="service-card">
+            <span class="card-number">03</span>
+            <span class="card-icon" aria-hidden="true">⌖</span>
+            <h3>Vuelve a tu ritmo</h3>
+            <p>Organiza tu regreso con tiempo y disfruta cada momento de la salida.</p>
+          </article>
+        </div>
+      </section>
 
-            <!-- TARJETA 2 -->
-            <article class="tarjeta-jugador">
-                <div class="imagen-contenedor">
-                    <!-- CAMBIÁ LA URL DE ABAJO POR TU IMAGEN -->
-                    <img src="capo.jpg" alt="Jugador 2">
-                </div>
-                <div class="info-jugador">
-                    <h3>ID: LEYENDA_FF</h3>
-                    <span class="rango">Heroico</span>
-                    <p>Francotirador principal. Dominio absoluto con AWM.</p>
-                </div>
-            </article>
-
-            <!-- TARJETA 3 -->
-            <article class="tarjeta-jugador">
-                <div class="imagen-contenedor">
-                    <!-- CAMBIÁ LA URL DE ABAJO POR TU IMAGEN -->
-                    <img src="Ferchu.jpg" alt="Jugador 3">
-                </div>
-                <div class="info-jugador">
-                    <h3>ID: CAZADOR_X</h3>
-                    <span class="rango">Heroico</span>
-                    <p>Estratega de escuadra y maestro del rusheo.</p>
-                </div>
-            </article>
-
-
-             <!-- TARJETA 4 -->
-            <article class="tarjeta-jugador">
-                <div class="imagen-contenedor">
-                    <!-- CAMBIÁ LA URL DE ABAJO POR TU IMAGEN -->
-                    <img src="Mati.jpg" alt="Jugador 4">
-                </div>
-                <div class="info-jugador">
-                    <h3>ID: EX VETERANO_X</h3>
-                    <span class="rango">Bronce</span>
-                    <p>Buscador de garitas y mata hacker en el 2018.</p>
-                </div>
-            </article>
-
-             <!-- TARJETA 5 -->
-            <article class="tarjeta-jugador">
-                <div class="imagen-contenedor">
-                    <!-- CAMBIÁ LA URL DE ABAJO POR TU IMAGEN -->
-                    <img src="Gordi.jpg" alt="Jugador 5">
-                </div>
-                <div class="info-jugador">
-                    <h3>ID: Jugador Toxico</h3>
-                    <span class="rango">Oro</span>
-                    <p>Buscador de Chacalitas y celocito.</p>
-                </div>
-            </article>
-
-
-        </section>
+      <section class="booking" id="reserva" aria-labelledby="booking-title">
+        <div>
+          <p class="eyebrow"><span class="live-dot"></span> ¿TIENES UN PLAN?</p>
+          <h2 id="booking-title">Hablemos de<br><span>tu próxima noche.</span></h2>
+          <p>Consulta disponibilidad y coordina los detalles de tu recorrido.</p>
+        </div>
+        <a class="primary-button" href="#servicio">Ver cómo coordinar <span aria-hidden="true">↗</span></a>
+      </section>
     </main>
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>&copy; 2026 COMUNIDAD FREE FIRE. TODOS LOS DERECHOS RESERVADOS.</p>
+    <footer class="footer">
+      <a class="brand footer-brand" href="#inicio" aria-label="Rata Móvil, volver al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M5 29h5l4-11h21l6 11h3v9h-4a6 6 0 0 1-12 0h-9a6 6 0 0 1-12 0H5z"/><path d="m16 21-3 7h21l-4-7z"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/></svg>
+        </span>
+        <span class="brand-copy"><strong>RATA <i>MÓVIL</i></strong><small>SALIDAS NOCTURNAS</small></span>
+      </a>
+      <p>La ciudad sigue despierta.</p>
+      <a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a>
     </footer>
-
-</body>
+  </body>
 </html>
